@@ -1,12 +1,56 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grandmaster Gemini Chess</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Benicio's Chess | Grandmaster AI</title>
+    <meta name="description" content="Juega ajedrez contra la IA avanzada de Google Gemini. Rápido, inteligente y gratuito.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vuestro-usuario.github.io/vuestro-repo/">
+    <meta property="og:title" content="Benicio's Chess | IA de Google Gemini">
+    <meta property="og:description" content="Desafía a la inteligencia artificial en el tablero de ajedrez más avanzado.">
+    <meta property="og:image" content="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/solid/chess-knight.svg">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@500;700&display=swap');
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        background: radial-gradient(circle at center, #18181b 0%, #09090b 100%);
+      }
+
+      .glass {
+        background: rgba(24, 24, 27, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .font-mono {
+        font-family: 'JetBrains Mono', monospace;
+      }
+
+      /* Personalización de scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #3f3f46;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6366f1;
+      }
+    </style>
+
 <script type="importmap">
 {
   "imports": {
@@ -19,7 +63,7 @@
 }
 </script>
 </head>
-<body class="bg-zinc-950 text-zinc-100 min-h-screen">
+<body class="text-zinc-100 min-h-screen overflow-x-hidden">
     <div id="root"></div>
 </body>
 </html>
