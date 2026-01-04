@@ -1,0 +1,5 @@
+{
+  "name": "BENICIO´S CHESS",
+  "description": "A sophisticated chess application featuring a custom-built board, move validation, and an advanced AI opponent powered by Google Gemini 3 Pro.",
+  "requestFramePermissions": []
+}
