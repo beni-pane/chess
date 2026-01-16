@@ -214,7 +214,7 @@ const App: React.FC = () => {
     <div className="min-h-screen flex flex-col items-center p-4 md:p-8 animate-in fade-in duration-700">
       <header className="w-full max-w-6xl flex flex-col md:flex-row justify-between items-center mb-10 gap-6">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(79,70,229,0.4)]"><i className="fa-solid fa-chess-knight text-2xl text-white"></i></div>
+          <div className="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(79,70,229,0.4)] text-2xl">♞</div>
           <div>
             <h1 className="text-2xl font-black text-white tracking-tight">BENICIO'S CHESS</h1>
             <div className="flex items-center gap-2">
@@ -264,7 +264,7 @@ const App: React.FC = () => {
 
           <button onClick={async () => { setIsAiThinking(true); setAnalysis(await getPositionAnalysis(game.fen())); setIsAiThinking(false); }}
             className="w-full py-4 glass hover:bg-indigo-600/20 text-indigo-400 border-indigo-500/30 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-3">
-            <i className="fa-solid fa-wand-magic-sparkles"></i> Analizar Posición
+            <span>✨</span> Analizar Posición
           </button>
           
           {analysis && <p className="text-zinc-400 text-[11px] leading-relaxed p-4 glass rounded-2xl border border-white/5 italic">{analysis}</p>}
@@ -327,7 +327,7 @@ const App: React.FC = () => {
           
           <div className="mt-6 flex gap-4">
              <button onClick={copyFen} className={`text-[10px] font-black uppercase tracking-widest transition-all ${copySuccess ? 'text-green-500' : 'text-zinc-600 hover:text-zinc-400'}`}>
-               <i className={`fa-solid ${copySuccess ? 'fa-check' : 'fa-copy'} mr-2`}></i> 
+               <span className="mr-2">{copySuccess ? '✓' : '📋'}</span> 
                {copySuccess ? 'Copiado' : 'Copiar FEN'}
              </button>
           </div>
@@ -364,11 +364,11 @@ const App: React.FC = () => {
           <div className="flex gap-3">
             <button onClick={() => { const gc = new Chess(game.fen()); gc.undo(); if(aiMode !== 'none') gc.undo(); setGame(gc); updateGameStatus(gc); }} 
               className="flex-1 py-4 glass text-zinc-400 rounded-2xl hover:text-white hover:bg-zinc-800 transition-all">
-              <i className="fa-solid fa-arrow-rotate-left"></i>
+              <span>↶</span>
             </button>
             <button onClick={resetGame} 
               className="flex-1 py-4 glass text-zinc-400 rounded-2xl hover:text-white hover:bg-zinc-800 transition-all">
-              <i className="fa-solid fa-trash-can"></i>
+              <span>🗑️</span>
             </button>
           </div>
         </div>
