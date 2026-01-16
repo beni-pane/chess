@@ -60,9 +60,9 @@ const App: React.FC = () => {
     board.flat().forEach(sq => {
       if (sq && sq.type !== 'k') pieces[sq.color][sq.type]--;
     });
-    (['p', 'n', 'b', 'r', 'q'] as PieceType[]).forEach(t => {
-      for (let i = 0; i < pieces.w[t]; i++) capturedWhite.push(t);
-      for (let i = 0; i < pieces.b[t]; i++) capturedBlack.push(t);
+    (['p', 'n', 'b', 'r', 'q'] as const).forEach(t => {
+      for (let i = 0; i < pieces.w[t as keyof typeof pieces.w]; i++) capturedWhite.push(t);
+      for (let i = 0; i < pieces.b[t as keyof typeof pieces.b]; i++) capturedBlack.push(t);
     });
 
     setGameStatus({ fen, isGameOver, isCheckmate, winner, history, capturedWhite, capturedBlack, turn: chess.turn() });
