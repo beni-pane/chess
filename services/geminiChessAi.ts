@@ -1,8 +1,13 @@
 import { GoogleGenAI, Type } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const apiKey = (import.meta as any).env?.VITE_API_KEY || '';
+
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
 export const getGeminiMove = async (fen: string, history: string[], legalMoves: string[]): Promise<string> => {
+  if (!ai) {
+    return legalMoves[0]; // Return first legal move if no API key
+  }
   try {
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
@@ -37,6 +42,9 @@ export const getGeminiMove = async (fen: string, history: string[], legalMoves: 
 };
 
 export const getPositionAnalysis = async (fen: string): Promise<string> => {
+  if (!ai) {
+    return "API key no configurada. Configura VITE_API_KEY para análisis.";
+  }
   try {
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
